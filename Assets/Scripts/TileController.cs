@@ -11,16 +11,34 @@ public class TileController : MonoBehaviour
     public int y;
     private SpriteRenderer tile;
     public Sprite[] prefabs;
+    public Sprite mine;
+    public GameManager manager;
+    private bool flag = false;
 
     // Start is called before the first frame update
-    void OnMouseDown()
+    void OnMouseOver()
     {
+        if(Input.GetMouseButtonDown(0)){
             if (!isOpen)
             {
-            if (isMine) tile.sprite = prefabs[0];
-            else if (count == 1) tile.sprite = prefabs[1];
+                manager.Open_all_none(x, y);
+                if (isMine) tile.sprite = mine;
+                else if (!isMine) tile.sprite = prefabs[count];
                 isOpen = true;
             }
+        } else if (Input.GetMouseButtonDown(1))
+        {
+            if (!flag)
+            {
+                manager.PutFlag(x, y);
+            }
+            else
+            {
+                manager.CancelFlag(x, y);
+            }
+            flag = !flag;
+            
+        }
     }
     void Start()
     {

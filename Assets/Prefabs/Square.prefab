@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 4600618819690675762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,8 +107,15 @@ MonoBehaviour:
   x: 0
   y: 0
   prefabs:
-  - {fileID: 21300000, guid: 478f01a64f034cf4cad7c346edf2f98c, type: 3}
-  - {fileID: 21300000, guid: 61db29437c04d3c42b2ff5982e245a64, type: 3}
+  - {fileID: 21300000, guid: e03c301832951f54aa78697d3220bd4b, type: 3}
+  - {fileID: 21300000, guid: b84fdd752ee6a864380b5b0bfa821a60, type: 3}
+  - {fileID: 21300000, guid: 22d7f9fde22855e409f4a1a92bf2e409, type: 3}
+  - {fileID: 21300000, guid: 0fcf8128a3b0c3a42912e70419b0441d, type: 3}
+  - {fileID: 21300000, guid: cc55c2eeda47c374aa9d67afc5bc443b, type: 3}
+  - {fileID: 21300000, guid: 8b8d7a44995f8b24f9da16f12bf9fccb, type: 3}
+  - {fileID: 21300000, guid: 7641940596208824f9f4b19f84b98f37, type: 3}
+  mine: {fileID: 21300000, guid: 478f01a64f034cf4cad7c346edf2f98c, type: 3}
+  manager: {fileID: 0}
 --- !u!61 &5025995334790377360
 BoxCollider2D:
   m_ObjectHideFlags: 0
