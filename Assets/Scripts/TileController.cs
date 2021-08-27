@@ -21,10 +21,13 @@ public class TileController : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             if (!isOpen)
             {
-                manager.Open_all_none(x, y);
-                if (isMine) tile.sprite = mine;
-                else if (!isMine) tile.sprite = prefabs[count];
-                isOpen = true;
+                if (isMine) manager.Loose();
+                else {
+                    manager.Open_all_none(x, y);
+                    if (isMine) tile.sprite = mine;
+                    else if (!isMine) tile.sprite = prefabs[count];
+                    isOpen = true;
+                }
             }
         } else if (Input.GetMouseButtonDown(1))
         {

@@ -12,8 +12,9 @@ public class GameManager : MonoBehaviour
     public Sprite mine;
     public Sprite flag;
     public Sprite field;
-    private int flagCount;
+    private int flagCount = 0;
     private int winning = 0;
+    public UnityEngine.UI.Text Flag;
     public void Open_all_none(int x_pos, int y_pos)
     {
         if (y_pos == rows || x_pos == columns || x_pos == -1 || y_pos == -1) return;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
             if (winning == board.mines) Win();
         }
         flagCount--;
+        Flag.text = "Flags left: " + flagCount.ToString();
     }
     public void CancelFlag(int x, int y)
     {
@@ -53,10 +55,26 @@ public class GameManager : MonoBehaviour
             winning--;
         }
         flagCount++;
+        Flag.text = "Flags left: " + flagCount.ToString();
+    }
+    void OpenField()
+    {
+        for (int x = 0; x < columns; x++)
+        {
+            for (int y = 0; y < rows; y++)
+            {
+                if (grid[x, y].GetComponent<TileController>().isMine) grid[x, y].GetComponent<SpriteRenderer>().sprite = mine;
+                else grid[x, y].GetComponent<SpriteRenderer>().sprite = prefabs[grid[x, y].GetComponent<TileController>().count];
+            }
+        }
     }
     public void Win()
     {
 
+    }
+    public void Loose()
+    {
+        OpenField();
     }
     void Start()
     {
@@ -64,5 +82,6 @@ public class GameManager : MonoBehaviour
         columns = board.columns;
         rows = board.rows;
         flagCount = board.mines;
+        Flag.text = "Flags left: " + flagCount.ToString();
     }
 }

@@ -13,20 +13,6 @@ public class BoardGenerator : MonoBehaviour
     private Transform boardHolder;
     public GameObject[,] grid;
     public GameManager manager;
-
-    public class Tile
-    {
-        public bool isMine;
-        public bool isOpen;
-        public int count;
-
-        public Tile(bool mine, bool open, int c)
-        {
-            isMine = mine;
-            isOpen = open;
-            count = c;
-        }
-    }
     void LoadGrid()
     {
         grid = new GameObject[columns, rows];
@@ -83,7 +69,7 @@ public class BoardGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        boardHolder = new GameObject("Canvas").transform;
+        boardHolder = new GameObject("Board").transform;
         LoadGrid();
         PlaceMines();
     }
