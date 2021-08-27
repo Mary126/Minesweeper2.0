@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Sprite mine;
     public Sprite flag;
     public Sprite field;
+    private int flagCount;
+    private int winning = 0;
     public void Open_all_none(int x_pos, int y_pos)
     {
         if (y_pos == rows || x_pos == columns || x_pos == -1 || y_pos == -1) return;
@@ -36,15 +38,31 @@ public class GameManager : MonoBehaviour
     public void PutFlag(int x, int y)
     {
         grid[x, y].GetComponent<SpriteRenderer>().sprite = flag;
+        if (grid[x, y].GetComponent<TileController>().isMine)
+        {
+            winning++;
+            if (winning == board.mines) Win();
+        }
+        flagCount--;
     }
     public void CancelFlag(int x, int y)
     {
         grid[x, y].GetComponent<SpriteRenderer>().sprite = field;
+        if (grid[x, y].GetComponent<TileController>().isMine)
+        {
+            winning--;
+        }
+        flagCount++;
+    }
+    public void Win()
+    {
+
     }
     void Start()
     {
         grid = board.grid;
         columns = board.columns;
         rows = board.rows;
+        flagCount = board.mines;
     }
 }
