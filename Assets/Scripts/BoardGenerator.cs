@@ -18,7 +18,6 @@ public class BoardGenerator : MonoBehaviour
         public bool isMine;
         public bool isOpen;
         public int count;
-        //public int y;
 
         public Tile(bool mine, bool open, int c)
         {
@@ -55,8 +54,8 @@ public class BoardGenerator : MonoBehaviour
                     check = true;
                     if (mineY != rows - 1 && mineX != columns - 1) grid[mineX + 1, mineY + 1].count += 1;
                     if (mineY != 0 && mineX != 0) grid[mineX - 1, mineY - 1].count += 1;
-                    if (mineY != rows - 1 && mineX != 0) grid[mineX + 1, mineY - 1].count += 1;
-                    if (mineY != 0 && mineX != columns - 1) grid[mineX - 1, mineY + 1].count += 1;
+                    if (mineY != rows - 1 && mineX != 0) grid[mineX - 1, mineY + 1].count += 1;
+                    if (mineY != 0 && mineX != columns - 1) grid[mineX + 1, mineY - 1].count += 1;
                     if (mineX != columns - 1) grid[mineX + 1, mineY].count += 1;
                     if (mineY != rows - 1) grid[mineX, mineY + 1].count += 1;
                     if (mineX != 0) grid[mineX - 1, mineY].count += 1;
@@ -82,7 +81,13 @@ public class BoardGenerator : MonoBehaviour
                 TileController controller = butt.GetComponent<TileController>();
                 controller.isMine = grid[x, y].isMine;
                 controller.count = grid[x, y].count;
+                controller.x = x;
+                controller.y = y;
             }
         }
+    }
+    void Update()
+    {
+        
     }
 }
