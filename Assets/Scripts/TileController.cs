@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TileController : MonoBehaviour
@@ -9,13 +7,9 @@ public class TileController : MonoBehaviour
     public bool isOpen = false;
     public int x;
     public int y;
-    private SpriteRenderer tile;
-    public Sprite[] prefabs;
-    public Sprite mine;
     public GameManager manager;
-    private bool flag = false;
+    public bool isFlag = false;
 
-    // Start is called before the first frame update
     void OnMouseOver()
     {
         if(Input.GetMouseButtonDown(0)){
@@ -24,14 +18,12 @@ public class TileController : MonoBehaviour
                 if (isMine) manager.Loose();
                 else {
                     manager.Open_all_none(x, y);
-                    if (isMine) tile.sprite = mine;
-                    else if (!isMine) tile.sprite = prefabs[count];
                     isOpen = true;
                 }
             }
         } else if (Input.GetMouseButtonDown(1) && !isOpen)
         {
-            if (!flag)
+            if (!isFlag)
             {
                 manager.PutFlag(x, y);
             }
@@ -39,18 +31,8 @@ public class TileController : MonoBehaviour
             {
                 manager.CancelFlag(x, y);
             }
-            flag = !flag;
+            isFlag = !isFlag;
             
         }
-    }
-    void Start()
-    {
-        tile = GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

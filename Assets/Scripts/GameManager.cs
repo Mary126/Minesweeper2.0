@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -20,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Button MenuButton;
     public Canvas LooseScreen;
     public Canvas WinScreen;
+
     public void Open_all_none(int x_pos, int y_pos)
     {
         if (y_pos == rows || x_pos == columns || x_pos == -1 || y_pos == -1) return;
@@ -43,24 +42,30 @@ public class GameManager : MonoBehaviour
     }
     public void PutFlag(int x, int y)
     {
-        grid[x, y].GetComponent<SpriteRenderer>().sprite = flag;
-        if (grid[x, y].GetComponent<TileController>().isMine && !grid[x, y].GetComponent<TileController>().isOpen)
+        if (flagCount > 0)
         {
-            winning++;
-            if (winning == board.mines) Win();
+            grid[x, y].GetComponent<SpriteRenderer>().sprite = flag;
+            if (grid[x, y].GetComponent<TileController>().isMine && !grid[x, y].GetComponent<TileController>().isOpen)
+            {
+                winning++;
+                if (winning == board.mines) Win();
+            }
+            flagCount--;
+            Flag.text = "Flags left: " + flagCount.ToString();
         }
-        flagCount--;
-        Flag.text = "Flags left: " + flagCount.ToString();
     }
     public void CancelFlag(int x, int y)
     {
-        grid[x, y].GetComponent<SpriteRenderer>().sprite = field;
-        if (grid[x, y].GetComponent<TileController>().isMine)
+        if (grid[x, y].GetComponent<TileController>().isFlag)
         {
-            winning--;
+            grid[x, y].GetComponent<SpriteRenderer>().sprite = field;
+            if (grid[x, y].GetComponent<TileController>().isMine)
+            {
+                winning--;
+            }
+            flagCount++;
+            Flag.text = "Flags left: " + flagCount.ToString();
         }
-        flagCount++;
-        Flag.text = "Flags left: " + flagCount.ToString();
     }
     void OpenField()
     {

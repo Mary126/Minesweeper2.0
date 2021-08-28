@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,7 +20,6 @@ public class SceneManage : MonoBehaviour
     {
         SceneManager.LoadScene("HardScene");
     }
-    // Start is called before the first frame update
     public void ExitScene()
     {
         Application.Quit();
@@ -37,11 +34,5 @@ public class SceneManage : MonoBehaviour
         hard.onClick.AddListener(LoadHard);
         Button exit = Button4.GetComponent<Button>();
         exit.onClick.AddListener(ExitScene);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

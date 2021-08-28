@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -72,11 +69,5 @@ public class BoardGenerator : MonoBehaviour
         boardHolder = new GameObject("Board").transform;
         LoadGrid();
         PlaceMines();
-    }
-
-    
-    void Update()
-    {
-        
     }
 }
