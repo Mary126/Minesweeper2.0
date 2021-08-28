@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1705040856567897881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705040856567897882}
+  - component: {fileID: 1705040856567897883}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1705040856567897882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705040856567897881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705040856567897883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705040856567897881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0ab1c4de77f24408c0ea051af68b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 4694030111878604184, guid: 34bbc3382eb6f2d44892f6925315b544, type: 3}
+  prefabs:
+  - {fileID: 21300000, guid: e03c301832951f54aa78697d3220bd4b, type: 3}
+  - {fileID: 21300000, guid: b84fdd752ee6a864380b5b0bfa821a60, type: 3}
+  - {fileID: 21300000, guid: 22d7f9fde22855e409f4a1a92bf2e409, type: 3}
+  - {fileID: 21300000, guid: 0fcf8128a3b0c3a42912e70419b0441d, type: 3}
+  - {fileID: 21300000, guid: cc55c2eeda47c374aa9d67afc5bc443b, type: 3}
+  - {fileID: 21300000, guid: 8b8d7a44995f8b24f9da16f12bf9fccb, type: 3}
+  - {fileID: 21300000, guid: 7641940596208824f9f4b19f84b98f37, type: 3}
+  mine: {fileID: 21300000, guid: 478f01a64f034cf4cad7c346edf2f98c, type: 3}
+  flag: {fileID: 21300000, guid: 54fe0cf19fe1f2d478b1db39257ca4b9, type: 3}
+  field: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  Flag: {fileID: 4047366999502996070, guid: 0deee0280720f0448b1f412269cdb941, type: 3}
