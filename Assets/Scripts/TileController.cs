@@ -29,7 +29,7 @@ public class TileController : MonoBehaviour
                     isOpen = true;
                 }
             }
-        } else if (Input.GetMouseButtonDown(1))
+        } else if (Input.GetMouseButtonDown(1) && !isOpen)
         {
             if (!flag)
             {

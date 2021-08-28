@@ -115,7 +115,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b8d7a44995f8b24f9da16f12bf9fccb, type: 3}
   - {fileID: 21300000, guid: 7641940596208824f9f4b19f84b98f37, type: 3}
   mine: {fileID: 21300000, guid: 478f01a64f034cf4cad7c346edf2f98c, type: 3}
-  manager: {fileID: 0}
+  manager: {fileID: 1705040856567897883, guid: cbf70a59f99ae87428c13bfd2ae2e2cc, type: 3}
 --- !u!61 &5025995334790377360
 BoxCollider2D:
   m_ObjectHideFlags: 0

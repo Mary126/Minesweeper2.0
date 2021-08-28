@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +16,10 @@ public class GameManager : MonoBehaviour
     public Sprite field;
     private int flagCount = 0;
     private int winning = 0;
-    public UnityEngine.UI.Text Flag;
+    public Text Flag;
+    public Button MenuButton;
+    public Canvas LooseScreen;
+    public Canvas WinScreen;
     public void Open_all_none(int x_pos, int y_pos)
     {
         if (y_pos == rows || x_pos == columns || x_pos == -1 || y_pos == -1) return;
@@ -39,7 +44,7 @@ public class GameManager : MonoBehaviour
     public void PutFlag(int x, int y)
     {
         grid[x, y].GetComponent<SpriteRenderer>().sprite = flag;
-        if (grid[x, y].GetComponent<TileController>().isMine)
+        if (grid[x, y].GetComponent<TileController>().isMine && !grid[x, y].GetComponent<TileController>().isOpen)
         {
             winning++;
             if (winning == board.mines) Win();
@@ -65,16 +70,23 @@ public class GameManager : MonoBehaviour
             {
                 if (grid[x, y].GetComponent<TileController>().isMine) grid[x, y].GetComponent<SpriteRenderer>().sprite = mine;
                 else grid[x, y].GetComponent<SpriteRenderer>().sprite = prefabs[grid[x, y].GetComponent<TileController>().count];
+                grid[x, y].GetComponent<TileController>().isOpen = true;
             }
         }
     }
     public void Win()
     {
-
+        OpenField();
+        Instantiate(WinScreen);
     }
     public void Loose()
     {
         OpenField();
+        Instantiate(LooseScreen);
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
     void Start()
     {
@@ -83,5 +95,7 @@ public class GameManager : MonoBehaviour
         rows = board.rows;
         flagCount = board.mines;
         Flag.text = "Flags left: " + flagCount.ToString();
+        Button btn = MenuButton.GetComponent<Button>();
+        btn.onClick.AddListener(LoadMainMenu);
     }
 }
